@@ -38,21 +38,31 @@ app.get("/donuts", async (req, res) => {
 });
 
 app.get("/load", async (req, res) => {
-    await knex.schema.createTableIfNeeded("flavor", (table) => {
-        table.increments()
-        table.string("name")
-        table.string("category")
-        table.string("imageURL")
-        table.string("donutID")
-    })
+    try {
+        await knex.schema.dropTable('flavor')
+    } catch (error) {
+        console.log(error)
+    }
+
+    if (!(await knex.schema.hasTable('flavor'))) {
+        await knex.schema.createTable("flavor", (table) => {
+            table.string("id", { primaryKey: true })
+            table.string("name")
+            table.string("category")
+            table.string("imageURL")
+            table.string("donutID")
+        })
+    }
+
+    await knex("flavor").insert(donuts)
 
     res.setHeader('Content-Type', 'application/json')
 
-    res.end(JSON.stringify(knex("flavor").insert(donuts).returning('*')))
+    res.send(JSON.stringify({ message: "loaded" }))
 });
 
 app.get("/nuke", async (req, res) => {
-    knex.schema.dropTable('flavor')
+    await knex.schema.dropTable('flavor')
     res.send(JSON.stringify({ message: "deleted" }))
 });
 
