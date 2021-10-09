@@ -4,7 +4,7 @@ if [[ -n  $isExistApp ]]; then
     service nginx stop        
 fi
 
-isExistApp = `pgrep node`
-if [[ -n  $isExistApp ]]; then
+isExistNodeApp = `pgrep node`
+if [[ -n  $isExistNodeApp ]]; then
     killall -9 node       
 fi
