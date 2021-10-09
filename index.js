@@ -5,7 +5,7 @@ let app = new express();
 const PORT = 3000;
 app.set("view engine", "ejs");
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: true }));
+
 // set up database connectionconst 
 knex = require("knex")(
     {
@@ -27,7 +27,6 @@ app.get("/", async (req, res) => {
     //     console.log(err);
     //     res.status(500).json({ err });
     // });
-    // const numArray = ["one", "two", "three", "four", "five"]
     const donutObjects = await knex.select().from("flavor")
     res.render("index", { donutdata: donutObjects });
 });
