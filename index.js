@@ -21,14 +21,15 @@ knex = require("knex")(
     });
 
 app.get("/", async (req, res) => {
-    knex.select().from("flavor").then(donuts => {
-        res.render("index", { donutdata: donuts });
-    }).catch(err => {
-        console.log(err);
-        res.status(500).json({ err });
-    });
+    // knex.select().from("flavor").then(donuts => {
+    //     res.render("index", { donutdata: donuts });
+    // }).catch(err => {
+    //     console.log(err);
+    //     res.status(500).json({ err });
+    // });
     // const numArray = ["one", "two", "three", "four", "five"]
-    // res.render("index", { donutdata: numArray });
+    const donuts = await knex.select().from("flavor")
+    res.render("index", { donutdata: donuts });
 });
 
 app.get("/donuts", async (req, res) => {
