@@ -21,7 +21,7 @@ knex = require("knex")(
     });
 
 app.get("/", async (req, res) => {
-    knex.select("id", "name", "category", "imageURL").from("flavor").orderBy("id").then(donuts => {
+    knex.select().then(donuts => {
         res.render("index", { donutdata: donuts });
     }).catch(err => {
         console.log(err);
