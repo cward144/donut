@@ -10,10 +10,10 @@ app.use(express.static('public'));
 knex = require("knex")(
     {
         client: "mysql",
-        //client: "sqlite3",
+        //client: "sqlite3", // USE FOR TESTING ON THE LOCAL MACHINE
         connection:
         {
-            //filename: "./donutsData.db"
+            //filename: "./donutsData.db" // USED FOR TESTING ON THE LOCAL MACHINE
             host: "rmic5stpzqgokb.cgxk7v9iabjl.us-west-2.rds.amazonaws.com", // Insert the read URL
             user: "DBUsername", //
             password: "DBPassword",
@@ -23,22 +23,19 @@ knex = require("knex")(
     });
 
 app.get("/", async (req, res) => {
-    knex.select().from('flavor').then(donutObjects => {
-        console.log(donutObjects);
-        res.render("index", { donutdata: donutObjects });
+    // knex.select().from('flavor').then(donutObjects => {
+    //     res.render("index", { donutdata: donutObjects });
 
-    }).catch(err => {
-        console.log(err);
-        res.status(500).json({ err });
-    });
-    // try {
-    //     //const donutObjects = await knex.select().from("flavor")
-    //     res.render("index", { donutdata: donuts });
-    // } catch {
-    //     res.send(JSON.stringify([]))
-    // }
-    // const donutObjects = await knex.select().from("flavor")
-    // res.render("index", { donutdata: donutObjects });
+    // }).catch(err => {
+    //     console.log(err);
+    //     res.status(500).json({ err });
+    // });
+    try {
+        const donutObjects = await knex.select().from("flavor")
+        res.render("index", { donutdata: donuts });
+    } catch {
+        res.send(JSON.stringify([]))
+    }
 });
 
 app.get("/donuts", async (req, res) => {

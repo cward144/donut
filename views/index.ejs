@@ -164,7 +164,7 @@
                             <div class="row">
                                 <!-- INSERT EJS -->
                                 <% for(var i=0; i<donutdata.length; i++) { %>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 my-2">
                                         <div class="card">
                                             <img class="card-img-top" src="<%= donutdata[i].imageURL%>"
                                                 alt="Donut Image">
@@ -182,33 +182,81 @@
                         <div id="cake" role="tabpanel" aria-labelledby="cake-tab" class="tab-pane fade px-4 py-5">
                             <p class="text-muted">CAKE</p>
                             <div class="row">
-                                <div class="col-md-3">
-                                    <div class="card">
-                                        <img class="card-img-top"
-                                            src="https://www.krispykreme.com/getattachment/9041db26-95ee-40e4-a069-1b6ca8d13b13/Chocolate-Glazed-Doughnut.aspx?width=310&height=310&mode=max&quality=60&format=jpg"
-                                            alt="Card image cap">
-                                        <div class="card-body">
-                                            <h6 class="card-text">Chocolate Iced Glazed</h6>
+                                <% for(var i=0; i<donutdata.length; i++) { if(donutdata[i].category.includes("Cake")) {
+                                    %>
+                                    <div class="col-md-3 my-2">
+                                        <div class="card">
+                                            <img class="card-img-top" src="<%= donutdata[i].imageURL%>"
+                                                alt="Donut Image">
+                                            <div class="card-body">
+                                                <h6 class="card-text">
+                                                    <%= donutdata[i].name%>
+                                                </h6>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                    <% } } %>
                             </div>
                         </div>
                         <div id="filled" role="tabpanel" aria-labelledby="filled-tab" class="tab-pane fade px-4 py-5">
                             <p class="text-muted">FILLED</p>
+                            <div class="row">
+                                <% for(var i=0; i<donutdata.length; i++) { if(donutdata[i].category.includes("Filled"))
+                                    { %>
+                                    <div class="col-md-3 my-2">
+                                        <div class="card">
+                                            <img class="card-img-top" src="<%= donutdata[i].imageURL%>"
+                                                alt="Donut Image">
+                                            <div class="card-body">
+                                                <h6 class="card-text">
+                                                    <%= donutdata[i].name%>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% } } %>
+                            </div>
                         </div>
                         <div id="glazed" role="tabpanel" aria-labelledby="glazed-tab" class="tab-pane fade px-4 py-5">
                             <p class="text-muted">GLAZED</p>
+                            <div class="row">
+                                <% for(var i=0; i<donutdata.length; i++) { if(donutdata[i].category.includes("Glazed"))
+                                    { %>
+                                    <div class="col-md-3 my-2">
+                                        <div class="card">
+                                            <img class="card-img-top" src="<%= donutdata[i].imageURL%>"
+                                                alt="Donut Image">
+                                            <div class="card-body">
+                                                <h6 class="card-text">
+                                                    <%= donutdata[i].name%>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% } } %>
+                            </div>
                         </div>
                         <div id="iced" role="tabpanel" aria-labelledby="iced-tab" class="tab-pane fade px-4 py-5">
                             <p class="text-muted">ICED</p>
+                            <div class="row">
+                                <% for(var i=0; i<donutdata.length; i++) { if(donutdata[i].category.includes("Iced")) {
+                                    %>
+                                    <div class="col-md-3 my-2">
+                                        <div class="card">
+                                            <img class="card-img-top" src="<%= donutdata[i].imageURL%>"
+                                                alt="Donut Image">
+                                            <div class="card-body">
+                                                <h6 class="card-text">
+                                                    <%= donutdata[i].name%>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% } } %>
+                            </div>
                         </div>
                     </div>
-                    <!-- End rounded tabs -->
                 </div>
-
-
-
             </div>
             <!-- <div class="row">
                     <div class="col-12">
@@ -329,9 +377,7 @@
             </div>
             <footer class="text-center small tm-footer">
                 <p class="mb-0">
-                    Copyright &copy; 2019 Company Name
-
-                    - Design: <a rel="nofollow" href="https://templatemo.com" class="tm-footer-link">Template Mo</a>
+                    Paradise Donut Company, Group-1
                 </p>
             </footer>
         </section>
