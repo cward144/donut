@@ -58,7 +58,7 @@ app.get("/load", async (req, res) => {
 });
 
 app.get("/nuke", async (req, res) => {
-    await knex.schema.dropTable('flavor')
+    await knex('flavor').del()
     res.send(JSON.stringify({ message: "deleted" }))
 });
 
