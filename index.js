@@ -21,20 +21,20 @@ knex = require("knex")(
     });
 
 app.get("/", async (req, res) => {
-    // knex.select().then(donuts => {
+    knex.select('name', 'category', 'imageURL').from('flavor').then(donutObjects => {
+        res.render("index", { donutdata: donutObjects });
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({ err });
+    });
+    // try {
+    //     //const donutObjects = await knex.select().from("flavor")
     //     res.render("index", { donutdata: donuts });
-    // }).catch(err => {
-    //     console.log(err);
-    //     res.status(500).json({ err });
-    // });
-    try {
-        const donutObjects = await knex.select().from("flavor")
-        res.render("index", { donutdata: donuts });
-    } catch {
-        res.send(JSON.stringify([]))
-    }
-    const donutObjects = await knex.select().from("flavor")
-    res.render("index", { donutdata: donutObjects });
+    // } catch {
+    //     res.send(JSON.stringify([]))
+    // }
+    // const donutObjects = await knex.select().from("flavor")
+    // res.render("index", { donutdata: donutObjects });
 });
 
 app.get("/donuts", async (req, res) => {
