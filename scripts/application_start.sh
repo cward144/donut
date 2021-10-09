@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cd /var/www/html/
-npm run start
+node index.js &
