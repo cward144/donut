@@ -21,11 +21,7 @@ knex = require("knex")(
     });
 
 app.get("/", async (req, res) => {
-    // UNCOMMENT THIS WHEN THE DB CONNECTION INFORMATION IS CORRECT/SET UP
-    const result = await knex.select().from("flavor")
-    console.log(result);
-    res.send(result);
-    // res.render("index");
+    res.render("index");
 });
 
 app.get("/donuts", async (req, res) => {
