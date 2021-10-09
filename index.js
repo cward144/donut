@@ -25,12 +25,14 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/donuts", async (req, res) => {
-    // UNCOMMENT THIS WHEN THE DB CONNECTION INFORMATION IS CORRECT/SET UP
-    const result = await knex.select().from("flavor")
-    // const result = donuts // Delete when database working
-    console.log(result);
     res.setHeader('Content-Type', 'application/json')
-    res.send(JSON.stringify(result))
+
+    try {
+        const result = await knex.select().from("flavor")
+        res.send(JSON.stringify(result))
+    } catch {
+        res.send(JSON.stringify([]))
+    }
 });
 
 app.get("/load", async (req, res) => {
