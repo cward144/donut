@@ -160,7 +160,7 @@
                     <div id="myTabContent" class="tab-content">
                         <div id="all" role="tabpanel" aria-labelledby="all-tab"
                             class="tab-pane fade px-4 py-5 show active">
-                            <p class="text-muted">ALL</p>
+
                             <div class="row">
                                 <!-- INSERT EJS -->
                                 <% for(var i=0; i<donutdata.length; i++) { %>
@@ -180,7 +180,7 @@
                             </div>
                         </div>
                         <div id="cake" role="tabpanel" aria-labelledby="cake-tab" class="tab-pane fade px-4 py-5">
-                            <p class="text-muted">CAKE</p>
+
                             <div class="row">
                                 <% for(var i=0; i<donutdata.length; i++) { if(donutdata[i].category.includes("Cake")) {
                                     %>
@@ -199,7 +199,7 @@
                             </div>
                         </div>
                         <div id="filled" role="tabpanel" aria-labelledby="filled-tab" class="tab-pane fade px-4 py-5">
-                            <p class="text-muted">FILLED</p>
+
                             <div class="row">
                                 <% for(var i=0; i<donutdata.length; i++) { if(donutdata[i].category.includes("Filled"))
                                     { %>
@@ -218,7 +218,7 @@
                             </div>
                         </div>
                         <div id="glazed" role="tabpanel" aria-labelledby="glazed-tab" class="tab-pane fade px-4 py-5">
-                            <p class="text-muted">GLAZED</p>
+
                             <div class="row">
                                 <% for(var i=0; i<donutdata.length; i++) { if(donutdata[i].category.includes("Glazed"))
                                     { %>
@@ -237,7 +237,7 @@
                             </div>
                         </div>
                         <div id="iced" role="tabpanel" aria-labelledby="iced-tab" class="tab-pane fade px-4 py-5">
-                            <p class="text-muted">ICED</p>
+
                             <div class="row">
                                 <% for(var i=0; i<donutdata.length; i++) { if(donutdata[i].category.includes("Iced")) {
                                     %>
