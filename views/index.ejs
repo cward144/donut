@@ -12,10 +12,9 @@
         <link rel="stylesheet" href="magnific-popup/magnific-popup.css">
         <link rel="stylesheet" href="css/bootstrap.min.css" />
         <link rel="stylesheet" href="css/templatemo-style.css" />
-        <!--
-	The Town
-	https://templatemo.com/tm-525-the-town
-	-->
+        <link rel="stylesheet" href="css/custom.css" />
+
+
     </head>
 
     <body>
@@ -130,7 +129,87 @@
                         </p>
                     </div>
                 </div>
-                <div class="row">
+                <div class="p-5 bg-white rounded shadow mb-5">
+                    <!-- Rounded tabs -->
+                    <ul id="myTab" role="tablist"
+                        class="nav nav-tabs nav-pills flex-column flex-sm-row text-center bg-light border-0 rounded-nav">
+                        <li class="nav-item flex-sm-fill">
+                            <a id="all-tab" data-toggle="tab" href="#all" role="tab" aria-controls="all"
+                                aria-selected="true"
+                                class="nav-link border-0 text-uppercase font-weight-bold active">All</a>
+                        </li>
+                        <li class="nav-item flex-sm-fill">
+                            <a id="cake-tab" data-toggle="tab" href="#cake" role="tab" aria-controls="cake"
+                                aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold">Cake</a>
+                        </li>
+                        <li class="nav-item flex-sm-fill">
+                            <a id="filled-tab" data-toggle="tab" href="#filled" role="tab" aria-controls="filled"
+                                aria-selected="false"
+                                class="nav-link border-0 text-uppercase font-weight-bold">Filled</a>
+                        </li>
+                        <li class="nav-item flex-sm-fill">
+                            <a id="glazed-tab" data-toggle="tab" href="#glazed" role="tab" aria-controls="glazed"
+                                aria-selected="false"
+                                class="nav-link border-0 text-uppercase font-weight-bold">Glazed</a>
+                        </li>
+                        <li class="nav-item flex-sm-fill">
+                            <a id="iced-tab" data-toggle="tab" href="#iced" role="tab" aria-controls="iced"
+                                aria-selected="false" class="nav-link border-0 text-uppercase font-weight-bold">Iced</a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div id="all" role="tabpanel" aria-labelledby="all-tab"
+                            class="tab-pane fade px-4 py-5 show active">
+                            <p class="text-muted">ALL</p>
+                            <div class="row">
+                                <!-- INSERT EJS -->
+                                <% donutdata.forEach(function (donut) { %>
+                                    <div class="col-md-3">
+                                        <div class="card">
+                                            <img class="card-img-top" src="<%donut.imageURL%>" alt="Donut Image">
+                                            <div class="card-body">
+                                                <h6 class="card-text">
+                                                    <%donut.name%>
+                                                </h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <% }); %>
+                                        <!-- CLOSE EJS FOR LOOP -->
+                            </div>
+                        </div>
+                        <div id="cake" role="tabpanel" aria-labelledby="cake-tab" class="tab-pane fade px-4 py-5">
+                            <p class="text-muted">CAKE</p>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="card">
+                                        <img class="card-img-top"
+                                            src="https://www.krispykreme.com/getattachment/9041db26-95ee-40e4-a069-1b6ca8d13b13/Chocolate-Glazed-Doughnut.aspx?width=310&height=310&mode=max&quality=60&format=jpg"
+                                            alt="Card image cap">
+                                        <div class="card-body">
+                                            <h6 class="card-text">Chocolate Iced Glazed</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="filled" role="tabpanel" aria-labelledby="filled-tab" class="tab-pane fade px-4 py-5">
+                            <p class="text-muted">FILLED</p>
+                        </div>
+                        <div id="glazed" role="tabpanel" aria-labelledby="glazed-tab" class="tab-pane fade px-4 py-5">
+                            <p class="text-muted">GLAZED</p>
+                        </div>
+                        <div id="iced" role="tabpanel" aria-labelledby="iced-tab" class="tab-pane fade px-4 py-5">
+                            <p class="text-muted">ICED</p>
+                        </div>
+                    </div>
+                    <!-- End rounded tabs -->
+                </div>
+
+
+
+            </div>
+            <!-- <div class="row">
                     <div class="col-12">
                         <div class="mx-auto tm-gallery-container">
                             <div class="grid tm-gallery">
@@ -201,7 +280,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
 
@@ -260,6 +339,12 @@
         <script src="magnific-popup/jquery.magnific-popup.min.js"></script>
         <script src="js/jquery.singlePageNav.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
         <script>
 
             function getOffSet() {
