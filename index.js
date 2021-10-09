@@ -29,7 +29,7 @@ app.get("/", async (req, res) => {
     // });
     try {
         const donutObjects = await knex.select().from("flavor")
-        res.render("index", { donutdata: donutObjects });
+        res.render("index", { donutdata: donuts });
     } catch {
         res.send(JSON.stringify([]))
     }
