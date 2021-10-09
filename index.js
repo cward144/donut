@@ -10,8 +10,10 @@ app.use(express.static('public'));
 knex = require("knex")(
     {
         client: "mysql",
+        //client: "sqlite3",
         connection:
         {
+            //filename: "./donutsData.db"
             host: "rmic5stpzqgokb.cgxk7v9iabjl.us-west-2.rds.amazonaws.com", // Insert the read URL
             user: "DBUsername", //
             password: "DBPassword",
@@ -21,8 +23,10 @@ knex = require("knex")(
     });
 
 app.get("/", async (req, res) => {
-    knex.select('name', 'category', 'imageURL').from('flavor').then(donutObjects => {
+    knex.select().from('flavor').then(donutObjects => {
+        console.log(donutObjects);
         res.render("index", { donutdata: donutObjects });
+
     }).catch(err => {
         console.log(err);
         res.status(500).json({ err });
