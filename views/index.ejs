@@ -163,18 +163,18 @@
                             <p class="text-muted">ALL</p>
                             <div class="row">
                                 <!-- INSERT EJS -->
-                                <% donutdata.forEach(function (donut) { %>
+                                <% for(var i=0; i<donutdata.length; i++) { %>
                                     <div class="col-md-3">
                                         <div class="card">
-                                            <img class="card-img-top" src="<%donut.imageURL%>" alt="Donut Image">
+                                            <img class="card-img-top" src="<%donutdata[i].imageURL%>" alt="Donut Image">
                                             <div class="card-body">
                                                 <h6 class="card-text">
-                                                    <%donut.name%>
+                                                    <%donutdata[i].name%>
                                                 </h6>
                                             </div>
                                         </div>
                                     </div>
-                                    <% }); %>
+                                    <% } %>
                                         <!-- CLOSE EJS FOR LOOP -->
                             </div>
                         </div>
